@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1060" width="1500" height="1060" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f6f43"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2457a6"/></marker>
+    <marker id="p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4a9c"/></marker>
+  </defs>
+  <style>
+    .t{font-size:15px;fill:#1b1b1b}.s{font-size:12.5px;fill:#333}.h{font-size:20px;font-weight:700;fill:#111}
+    .b{font-weight:700}.box{fill:#fff;stroke:#555;stroke-width:1.4;rx:8}
+    .dec{fill:#fff6e8;stroke:#b26a00;stroke-width:2}.wit{fill:#eaf6ee;stroke:#1f6f43;stroke-width:2}
+    .lbl{font-size:12px;fill:#222}
+  </style>
+  <rect width="1500" height="1060" fill="#fbfbfa"/>
+  <text x="30" y="38" class="h">TetraSafe Keystone Component Demo, version 20: components and channels as tested (review version 4)</text>
+  <text x="30" y="62" class="s">Drawn from the v20 source. Shows what the demonstration does; it is not a design for prevention, and it does not disclose the implementation.</text>
+
+  <!-- host -->
+  <rect x="20" y="80" width="1460" height="850" fill="#f1f4f8" stroke="#6b7c93" stroke-width="2" rx="14"/>
+  <text x="40" y="108" class="t b">One Windows computer, operated by Stephen (everything below runs on it)</text>
+
+  <!-- VM -->
+  <rect x="40" y="125" width="760" height="785" fill="#fdf0f0" stroke="#b33a3a" stroke-width="2.5" stroke-dasharray="9 6" rx="12"/>
+  <text x="60" y="152" class="t b" fill="#8a1f1f">Keystone VM: the restoration domain</text>
+  <text x="60" y="171" class="s">Everything in this box is rolled back when the VM's disk is restored from a snapshot.</text>
+
+  <!-- agent -->
+  <rect x="60" y="195" width="200" height="70" class="box"/>
+  <text x="75" y="220" class="t b">Agent (agent_a)</text>
+  <text x="75" y="240" class="s">untrusted; its key was made</text>
+  <text x="75" y="256" class="s">before the snapshot</text>
+
+  <!-- issuer/admission -->
+  <rect x="60" y="300" width="200" height="88" class="box"/>
+  <text x="75" y="325" class="t b">Admission and issuer</text>
+  <text x="75" y="345" class="s">approve the refund and issue</text>
+  <text x="75" y="361" class="s">an authorization intended</text>
+  <text x="75" y="376" class="s">for single use</text>
+
+  <!-- intermediary: decision point -->
+  <rect x="330" y="195" width="280" height="125" class="dec" rx="8"/>
+  <text x="345" y="220" class="t b">Intermediary (execution boundary)</text>
+  <text x="345" y="241" class="s">checks the authorization's signature,</text>
+  <text x="345" y="257" class="s">possession and binding to the request;</text>
+  <text x="345" y="273" class="s">asks the anchor whether it was used;</text>
+  <text x="345" y="289" class="s">claims it in its store; then sends.</text>
+  <text x="345" y="309" class="s b" fill="#8a4b00">The only place the send is decided.</text>
+
+  <!-- anchor + istore -->
+  <rect x="330" y="365" width="142" height="70" class="box"/>
+  <text x="343" y="390" class="t b">Anchor</text>
+  <text x="343" y="408" class="s">write-once record</text>
+  <text x="341" y="424" class="s">of used authorizations</text>
+  <rect x="482" y="365" width="128" height="70" class="box"/>
+  <text x="494" y="390" class="t b">Its store</text>
+  <text x="494" y="408" class="s">claims and</text>
+  <text x="494" y="424" class="s">results</text>
+  <text x="330" y="455" class="s" fill="#8a1f1f">Both are SQLite files inside the VM,</text>
+  <text x="330" y="470" class="s" fill="#8a1f1f">so a restore rolls them back.</text>
+
+  <!-- provider -->
+  <rect x="630" y="195" width="163" height="90" class="box"/>
+  <text x="642" y="220" class="t b">Simulated provider</text>
+  <text x="642" y="240" class="s">receives the refund;</text>
+  <text x="642" y="256" class="s">its execution ledger is</text>
+  <text x="642" y="272" class="s">inside the VM too</text>
+
+  <!-- recorder -->
+  <rect x="330" y="490" width="250" height="65" class="box"/>
+  <text x="345" y="515" class="t b">Recorder</text>
+  <text x="345" y="535" class="s">every component writes its events to</text>
+  <text x="345" y="550" class="s">recorder logs (recorder.jsonl)</text>
+
+  <!-- shipper -->
+  <rect x="330" y="610" width="280" height="100" class="box"/>
+  <text x="345" y="635" class="t b">Signed shipper</text>
+  <text x="345" y="655" class="s">reads the recorder logs read-only; signs</text>
+  <text x="345" y="671" class="s">each copy with K_ship and a counter</text>
+  <text x="345" y="687" class="s">kept on the VM's disk; opens no other</text>
+  <text x="345" y="703" class="s">Keystone file or socket</text>
+
+  <!-- tunnel account -->
+  <rect x="330" y="760" width="250" height="60" class="box"/>
+  <text x="345" y="785" class="t b">Tunnel account (kdtunnel)</text>
+  <text x="345" y="805" class="s">can only forward to the witness</text>
+
+  <!-- driver/inspect -->
+  <rect x="60" y="610" width="200" height="110" class="box"/>
+  <text x="75" y="635" class="t b">Demo driver and</text>
+  <text x="75" y="653" class="t b">read-only inspector</text>
+  <text x="75" y="674" class="s">run the steps through frozen</text>
+  <text x="75" y="690" class="s">run 7; read Keystone's stores</text>
+  <text x="75" y="706" class="s">and the provider's ledger</text>
+
+  <!-- host side -->
+  <rect x="860" y="160" width="300" height="150" class="wit" rx="8"/>
+  <text x="875" y="186" class="t b">Witness</text>
+  <text x="875" y="207" class="s">TLS endpoint, pinned certificate</text>
+  <text x="875" y="223" class="s">keeps the received copies in its own log;</text>
+  <text x="875" y="239" class="s">flags a counter that goes backwards;</text>
+  <text x="875" y="255" class="s">signs replies and checkpoints with K_store;</text>
+  <text x="875" y="271" class="s">serves the dashboard</text>
+  <text x="875" y="295" class="s b" fill="#1f6f43">Outside the restoration domain</text>
+
+  <rect x="1200" y="160" width="260" height="110" class="box"/>
+  <text x="1215" y="186" class="t b">Co-signer</text>
+  <text x="1215" y="207" class="s">fetches each checkpoint and</text>
+  <text x="1215" y="223" class="s">co-signs it with K_witness,</text>
+  <text x="1215" y="239" class="s">Stephen's co-signing key</text>
+  <text x="1215" y="255" class="s">(generated by setup)</text>
+
+  <rect x="860" y="400" width="300" height="130" class="box"/>
+  <text x="875" y="426" class="t b">Demo program (kdemo.py)</text>
+  <text x="875" y="447" class="s">operates the demonstration: starts the witness,</text>
+  <text x="875" y="463" class="s">co-signer and tunnel; runs each step in the VM</text>
+  <text x="875" y="479" class="s">over SSH; reads results back over SSH;</text>
+  <text x="875" y="495" class="s">writes the report and builds the bundle</text>
+  <text x="875" y="515" class="s b">Its 11 SSH observations are not signed.</text>
+
+  <rect x="1200" y="400" width="260" height="90" class="box"/>
+  <text x="1215" y="426" class="t b">VirtualBox</text>
+  <text x="1215" y="447" class="s">powers the VM off, takes</text>
+  <text x="1215" y="463" class="s">snapshots, restores the disk</text>
+
+  <rect x="860" y="610" width="300" height="110" class="box"/>
+  <text x="875" y="636" class="t b">Verifier and saved-evidence viewer</text>
+  <text x="875" y="657" class="s">after the run, check the bundle: chain, signatures,</text>
+  <text x="875" y="673" class="s">checkpoints, co-signatures against a key the</text>
+  <text x="875" y="689" class="s">operator supplies. Not involved during the run.</text>
+
+  <rect x="1200" y="282" width="260" height="108" fill="#fffbe9" stroke="#b26a00" stroke-width="2" rx="8"/>
+  <text x="1215" y="303" class="t b">Agent's kept authorization</text>
+  <text x="1215" y="323" class="s">DEMO-1's signed token and obligation</text>
+  <text x="1215" y="338" class="s">(no private key), held by the demo</text>
+  <text x="1215" y="353" class="s">program outside the VM through the</text>
+  <text x="1215" y="368" class="s">restore, standing in for an agent</text>
+  <text x="1215" y="383" class="s">outside the boundary's machine.</text>
+  <line x1="1162" y1="415" x2="1218" y2="392" stroke="#b26a00" stroke-width="1.8" marker-start="url(#a)" marker-end="url(#a)"/>
+
+  <!-- arrows: decision path -->
+  <line x1="260" y1="228" x2="328" y2="228" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+  <text x="264" y="218" class="lbl">presents</text>
+  <line x1="160" y1="300" x2="160" y2="267" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="168" y="290" class="lbl">token</text>
+  <line x1="390" y1="322" x2="390" y2="363" stroke="#333" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+  <line x1="540" y1="322" x2="540" y2="363" stroke="#333" stroke-width="2" marker-start="url(#a)" marker-end="url(#a)"/>
+  <line x1="612" y1="240" x2="628" y2="240" stroke="#333" stroke-width="2.4" marker-end="url(#a)"/>
+  <text x="600" y="300" class="lbl b"> </text>
+
+  <!-- events to recorder -->
+  <line x1="560" y1="440" x2="560" y2="488" stroke="#777" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#a)"/>
+  <text x="568" y="470" class="lbl">events</text>
+  <!-- recorder to shipper -->
+  <line x1="455" y1="557" x2="455" y2="608" stroke="#1f6f43" stroke-width="2" marker-end="url(#g)"/>
+  <text x="463" y="590" class="lbl">read-only</text>
+  <!-- shipper to tunnel -->
+  <line x1="420" y1="712" x2="420" y2="758" stroke="#1f6f43" stroke-width="2" marker-end="url(#g)"/>
+  <text x="428" y="740" class="lbl">signed copies + counter</text>
+  <!-- tunnel to witness -->
+  <path d="M582,790 L820,790 L820,250 L858,250" fill="none" stroke="#1f6f43" stroke-width="2.4" marker-end="url(#g)"/>
+  <text x="600" y="812" class="lbl" fill="#1f6f43">reverse SSH tunnel, opened from</text>
+  <text x="600" y="827" class="lbl" fill="#1f6f43">the host, to the witness's TLS port</text>
+  <!-- ack back to shipper only -->
+  <path d="M858,300 L700,300 L700,650 L612,650" fill="none" stroke="#7a4a9c" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#p)"/>
+  <text x="708" y="345" class="lbl" fill="#7a4a9c">signed reply:</text>
+  <text x="708" y="360" class="lbl" fill="#7a4a9c">to the shipper</text>
+  <text x="708" y="375" class="lbl" fill="#7a4a9c">only, which</text>
+  <text x="708" y="390" class="lbl" fill="#7a4a9c">re-sends on a</text>
+  <text x="708" y="405" class="lbl" fill="#7a4a9c">rollback flag</text>
+  <text x="708" y="425" class="lbl b" fill="#7a4a9c">never reaches</text>
+  <text x="708" y="440" class="lbl b" fill="#7a4a9c">the intermediary</text>
+
+  <!-- cosigner -->
+  <line x1="1162" y1="215" x2="1198" y2="215" stroke="#2457a6" stroke-width="2" marker-start="url(#b)" marker-end="url(#b)"/>
+  <!-- kdemo to VM -->
+  <path d="M858,515 L832,515 L832,880 L160,880 L160,722" fill="none" stroke="#2457a6" stroke-width="2" marker-end="url(#b)"/>
+  <text x="172" y="855" class="lbl" fill="#2457a6">SSH with the admin key: runs each step and reads results back (the 11 unsigned observations);</text>
+  <text x="172" y="870" class="lbl" fill="#2457a6">returns DEMO-1's authorization to the host at Step 2, and carries it back in at Step 8</text>
+  <!-- kdemo to vbox -->
+  <line x1="1162" y1="445" x2="1198" y2="445" stroke="#2457a6" stroke-width="2" marker-end="url(#b)"/>
+  <!-- vbox to VM -->
+  <path d="M1330,492 L1330,565 L804,565" fill="none" stroke="#2457a6" stroke-width="2" stroke-dasharray="7 4" marker-end="url(#b)"/>
+  <text x="845" y="557" class="lbl" fill="#2457a6">power off, snapshot, restore the whole VM disk</text>
+  <!-- kdemo starts witness/cosigner -->
+  <line x1="1010" y1="398" x2="1010" y2="312" stroke="#2457a6" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#b)"/>
+  <text x="1018" y="360" class="lbl" fill="#2457a6">starts</text>
+  <!-- bundle -->
+  <line x1="1010" y1="532" x2="1010" y2="608" stroke="#555" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#a)"/>
+  <text x="1018" y="597" class="lbl">evidence bundle</text>
+
+  <!-- key callout -->
+  <rect x="1200" y="600" width="260" height="238" fill="#fff" stroke="#1f6f43" stroke-width="2" rx="8"/>
+  <text x="1215" y="626" class="t b" fill="#1f6f43">What the witness can and</text>
+  <text x="1215" y="644" class="t b" fill="#1f6f43">cannot do in v20</text>
+  <text x="1215" y="668" class="s">&#10003; keeps a record the restore</text>
+  <text x="1215" y="684" class="s">   cannot reach</text>
+  <text x="1215" y="704" class="s">&#10003; sees the counter go backwards,</text>
+  <text x="1215" y="720" class="s">   consistent with a restore</text>
+  <text x="1215" y="740" class="s">&#10007; cannot tell what caused it: a VM</text>
+  <text x="1215" y="756" class="s">   holding K_ship could send a lower</text>
+  <text x="1215" y="772" class="s">   counter deliberately</text>
+  <text x="1215" y="792" class="s">&#10007; takes no part in the decision to send</text>
+  <text x="1215" y="812" class="s">&#10007; cannot tell whether the VM's signed</text>
+  <text x="1215" y="828" class="s">   messages were true when sent</text>
+
+  <!-- footer -->
+  <text x="30" y="958" class="s b">Why Step 8 sends again: DEMO-1's authorization was kept outside the VM, and the agent's key predates the snapshot, so both survive the restore. The intermediary's</text>
+  <text x="30" y="976" class="s b">memory of the authorization's use (anchor and store) is inside the restoration domain: after the restore it says "not used", and nothing outside the VM is consulted.</text>
+  <text x="30" y="1002" class="s">Trust root: every key (K_ship in the VM; K_store and K_witness on the host), every program and the VM are on one computer operated by one person. Signatures show the records are</text>
+  <text x="30" y="1020" class="s">consistent with those keys. They cannot show that what was signed was true, or that someone holding the keys did not construct and sign a different record.</text>
+</svg>
