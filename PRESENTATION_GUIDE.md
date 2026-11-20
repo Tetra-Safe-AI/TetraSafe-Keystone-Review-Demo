@@ -1,10 +1,10 @@
-# Private presentation guide
+# Presentation guide for the documented demonstration
 
 **TetraSafe Keystone Component Demo — presentation P1 viewer of version 20 evidence**
 
 **Presentation update as of November 18, 2026:** presentation P1 passed its reported Linux checks and was visually reviewed in Stephen's Windows browser using the saved run. See the [P1 validation record](PRESENTATION_P1_STATUS.md) for archive identifiers, observations and limits. The command below now starts the **P1 viewer**, which displays evidence originally produced by frozen version 20. The signed `v20-run-01` evidence was not rewritten.
 
-This guide accompanies the [README](README.md). It is for a supervised private conversation with a small number of technically interested people. It does not authorize a public release of the package, the protected Keystone implementation, or the complete evidence bundle.
+This publicly available guide accompanies the [README](README.md) and explains how to present the recorded demonstration in a supervised setting. Publication of this guide does not authorize distribution of the demonstration package, protected Keystone implementation, or complete evidence bundle.
 
 ## The purpose of the demonstration
 
@@ -62,4 +62,4 @@ The next research questions are open questions, not missing presentation slides.
 
 ## Sharing decision
 
-This guide and the README can be reviewed privately now. No source code, evidence bundles, private keys, credentials, or packages should be added to the repository without a separate review of their contents and the claims they are intended to support. The bundle contains five reference Python source files that recipients could read, so treat any proposed distribution as a deliberate disclosure decision. Feedback on the presentation should be recorded as feedback first; discovering a limitation does not, by itself, authorize changing the mechanism or creating another version.
+This guide and the README are publicly available documentation. No source code, evidence bundles, private keys, credentials, or packages should be added to the repository without a separate review of their contents and the claims they are intended to support. The bundle contains five reference Python source files that recipients could read, so treat any proposed distribution as a deliberate disclosure decision. Feedback on the presentation should be recorded as feedback first; discovering a limitation does not, by itself, authorize changing the mechanism or creating another version.
