@@ -1,6 +1,6 @@
 # How the version 20 demonstration is put together, and what that means for its evidence (review version 4)
 
-**For:** private review. **Drawn from:** the delivered version 20 source (archive `3bb5fb7f…`), read-only. **Goes with:** `keystone_v20_architecture_for_review_v4.svg`.
+**For:** public technical review of the documented demonstration. **Drawn from:** the delivered version 20 source (archive `3bb5fb7f…`), read-only. **Goes with:** `keystone_v20_architecture_for_review_v4.svg`.
 
 This describes the demonstration **as tested**. It is not a design for prevention, and it names components without disclosing their implementation.
 
