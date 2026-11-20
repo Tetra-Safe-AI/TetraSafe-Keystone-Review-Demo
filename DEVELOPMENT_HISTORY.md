@@ -1,6 +1,6 @@
 # TetraSafe Keystone Component Demo: development history, versions 1 through 20
 
-**Prepared November 18, 2026. Internal documentation for the private TetraSafe repository. No source code is included.**
+**Prepared November 18, 2026. Public documentation of the demonstration history. Protected source code and unrestricted evidence bundles are not included.**
 
 This is the history of twenty **demonstration package versions**, not twenty revisions of the protected Keystone Mechanism. The underlying frozen Keystone run 7 enforcement code was the subject of the demonstration. Most changes after the early versions concerned orchestration, Windows and VirtualBox operation, evidence custody, verification, replay, security checks, and the accuracy of the public claims.
 
@@ -113,4 +113,4 @@ The historical description of versions 1 through 18 comes from the read only ret
 
 The Windows run and Claude's later separate-machine verification are drawn from Stephen's console output and Claude's review messages supplied during the presentation preparation. Those outcomes have not been independently added to the Notebook record at the time this history was prepared. This document intentionally preserves the difference between archived source comparison, author-reported test outputs, independently reproduced signed evidence verification, and untested deployment claims.
 
-The public-facing development history can eventually be derived from this document without releasing the source code, private test material, or restricted Notebook records. Any such release is a separate decision and should preserve both the successes and the known failures.
+This development history is publicly available as documentation. It does not release protected source code, private test material, or restricted Notebook records. Any future release of those materials is a separate decision and must preserve both the successes and the known failures.
