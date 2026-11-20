@@ -2,7 +2,7 @@
 
 A controlled demonstration of the **Keystone Mechanism developed by TetraSafe**, a research effort led by Stephen Robert Gettel.
 
-The [Development History](DEVELOPMENT_HISTORY.md) documents demonstration versions 1 through 20, their known failures, and their exact archive identifiers without exposing source code. The [Private Presentation Guide](PRESENTATION_GUIDE.md) explains how to show the saved evidence safely.
+The [Development History](DEVELOPMENT_HISTORY.md) documents demonstration versions 1 through 20, their known failures, and their exact archive identifiers without exposing source code. The [Presentation Guide](PRESENTATION_GUIDE.md) explains how to show the saved evidence safely.
 
 The [Version 20 Architecture Diagram](keystone_v20_architecture_for_review_v4.svg) and its [companion explanation](keystone_v20_architecture_explanation_for_review_v4.md) show the actual demonstration components and communication paths, including how the original authorization survived the restore and what the witness can and cannot establish. They describe the tested version 20 demonstration, not a new prevention design.
 
@@ -76,7 +76,7 @@ The work remains experimental. It is not a production security certification, a 
 
 ## Public sharing and protected implementation
 
-This repository is being prepared as a presentation and evidence companion for the **TetraSafe Keystone Component Demo**. The purpose is to make bounded observations understandable without exposing the protected source code or treating the demonstration wrapper as the component itself.
+This public documentation repository serves as a presentation and evidence companion for the **TetraSafe Keystone Component Demo**. The purpose is to make bounded observations understandable without exposing the protected source code or treating the demonstration wrapper as the component itself.
 
 No private keys, system credentials, protected mechanism code, or unrestricted evidence bundles should be added here. The version 20 evidence bundle includes five Python source files: `witness.py`, `safe_tree.py`, `demo_common.py`, `verify_bundle.py`, and `phase_a/evidence_core.py`. These are reference witness and verification components, but anyone receiving the bundle can read them. Any future distribution requires a file-by-file disclosure review, including these five files, and a check that each proposed public claim is supported by what recipients can actually examine.
 
