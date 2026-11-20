@@ -1,6 +1,6 @@
 # TetraSafe Keystone Component Demo: Presentation P1 validation record
 
-**Updated November 18, 2026. Status: Presentation P1 replay has now been visually reviewed in Stephen's Windows browser and meets the recorded presentation checks. This is a private documentation record, not a software or evidence release.**
+**Updated November 18, 2026. Status: Presentation P1 replay has now been visually reviewed in Stephen's Windows browser and meets the recorded presentation checks. This is a public documentation record, not a software or evidence release.**
 
 ## What P1 is
 
