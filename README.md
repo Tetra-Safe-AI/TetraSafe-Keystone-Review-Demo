@@ -98,6 +98,10 @@ No private keys, system credentials, protected mechanism code, or unrestricted e
 
 A supervised private presentation and a generally distributable public package require different levels of preparation and review. Nothing in this README asserts that the entire version 20 package is ready for unrestricted distribution.
 
+## Voussoir R1 external review: operator handoff and attribution
+
+Following publication of the [Voussoir R1 results](VOUSSOIR_R1_RESULTS.md), Richard Lynes and Huck Huckaby proposed further qualification work on recovery after a safe HOLD. Their specific contributions and the open research question are documented in the [public operator handoff contribution record](VOUSSOIR_R1_OPERATOR_HANDOFF_REVIEW.md). The protocol remains proposed, not built or tested.
+
 ## Acknowledgments and collaborative contributions
 
 The TetraSafe Keystone Mechanism research has benefited from technical collaboration, constructive criticism, and practical experience shared by people working across computer architecture, autonomous systems, enterprise technology, and computational governance. Their contributions helped sharpen the questions under investigation and the evidence needed to answer them.

@@ -1,0 +1,23 @@
+# Voussoir R1 external review: operator handoff and contributions
+
+*Recorded November 21, 2026. Proposed research and external reviewer contributions, not a completed experiment or an adopted protocol.*
+
+The [Voussoir R1 experimental results](VOUSSOIR_R1_RESULTS.md) demonstrate, within the reported laboratory boundaries, that a consumed authorization was refused after restoration when its authoritative consumption record remained outside the restored executor. They also identify unresolved cases: `no_row`, where the restored executor lacks the local row needed to reconcile an earlier action, and `B6-K3`, where a consumption claim survives but dispatch did not complete. The R1 series has **not** demonstrated a working operational reconciliation procedure or an independently operated handoff.
+
+## Contributions following public R1 review
+
+**Richard Lynes / Genesis AiX** contributed the proposed **operator handoff qualification concept and review criteria** during the external review of Voussoir R1. His proposal has two related questions: whether a new operator can reconstruct the event and evidence (technical reconstruction), and whether that operator can reconstruct the current authority and permissible next action (operational reconstruction). Richard proposed testing **two independent operators** who did not participate in the original run and receive no oral explanation. From the preserved evidence alone, they would identify what is known, what remains unresolved, whether execution may already have happened, why another dispatch is or is not permitted, which evidence supports each conclusion, who has reconciliation authority, and what action is presently allowed. Their conclusions should be compared for consistency and checked against the governing evidence and authority requirements. Richard offered to develop a detailed qualification protocol and adversarial test sequence; **that protocol has not yet been received, reviewed, or adopted**.
+
+**Huck Huckaby** contributed the **customer and leadership obligation after HOLD** as an additional qualification requirement. Preventing another execution does not by itself discharge the customer's original obligation. The handoff must preserve what is proven and what remains unknown, constrain forbidden and permissible operator actions, identify who may authorize reconciliation, and assign who owns the customer update and when it is due. An explanation for why a case is held is not the same as completing the customer's obligation.
+
+**Stanislav Levarsky's** earlier research exchanges concerning unresolved prior outcomes, authority state, and the provenance and freshness of control evidence remain separately acknowledged. This entry does not claim that Stan reviewed R1 or participated in this proposed operator test. The existing [acknowledgments](README.md#acknowledgments-and-collaborative-contributions) retain further context for these and other contributors.
+
+Earlier work by the TetraSafe research team and its reviewers already considered uncertain external consequences, continuity after restoration, authority and operator handoff. This record credits these **specific proposals made during the R1 external review**; it does not assign the origin of every related idea to one participant. The Voussoir mechanism, the R1 experiments, and their evidence retain their documented authorship. Acknowledgment does not imply implementation responsibility, independent certification, endorsement, a transfer of intellectual property, or agreed licensing terms for future work.
+
+## Proposed next qualification question
+
+Can two operators, each uninvolved in the original run, reconstruct from the same preserved evidence the established events, unresolved outcome, current authority, forbidden and permitted actions, reconciliation responsibility, and customer communication obligation **without guessing or receiving an oral briefing**?
+
+The proposed cases include `no_row`, `B6-K3` (consumed before dispatch, then interrupted), and `B6-K5` (crash after dispatch, then restoration). A future test would need a fixed evidence package, independent evaluation conditions, explicit authority rules, and correctness criteria established before operator decisions. Agreement between two operators would not be sufficient if both reached the same unsupported conclusion.
+
+**Status:** Proposal only. No independent operator qualification has been run, no recovery or reconciliation protocol has been demonstrated, and no new implementation is authorized by this public note. Further contributions should be credited according to the work actually done. The private research Notebook and underlying experimental evidence are not released here.
