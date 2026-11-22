@@ -100,7 +100,7 @@ A supervised private presentation and a generally distributable public package r
 
 ## Voussoir R1 external review: operator handoff and attribution
 
-Following publication of the [Voussoir R1 results](VOUSSOIR_R1_RESULTS.md), Richard Lynes and Huck Huckaby proposed further qualification work on recovery after a safe HOLD. Their specific contributions and the open research question are documented in the [public operator handoff contribution record](VOUSSOIR_R1_OPERATOR_HANDOFF_REVIEW.md). The protocol remains proposed, not built or tested.
+Following publication of the [Voussoir R1 results](VOUSSOIR_R1_RESULTS.md), Richard Lynes and Robert "Huck" Huckaby proposed further qualification work on recovery after a safe HOLD. Their specific contributions and the open research question are documented in the [public operator handoff contribution record](VOUSSOIR_R1_OPERATOR_HANDOFF_REVIEW.md). The protocol remains proposed, not built or tested.
 
 ## Acknowledgments and collaborative contributions
 
@@ -108,7 +108,7 @@ The TetraSafe Keystone Mechanism research has benefited from technical collabora
 
 **Stanislav Levarsky** contributed technical scrutiny concerning independent observation, trustworthy evidence, authority boundaries, and the protection of authoritative state. Collaboration on the EABC Implementation Profile helped clarify relationships among architectural requirements, implementation behavior, and verifiable evidence. His continuing feedback has been valuable in examining restoration failures, integrity and freshness of authority records, and when evidence justifies an architectural change.
 
-**Huck Huckaby** contributed an operational and human perspective. He examined an earlier public evidence package, ran its examiner, and provided a practitioner review from the perspective of customers, operators, support teams, and organizations managing unresolved transactions. He emphasized that when an uncertain transaction is safely held, the evidence, unresolved questions, case ownership, and responsibility must survive the handoff to the next operator. His proposed evaluation using an unfamiliar operator and only the available evidence helped develop the research questions around practical recovery and human responsibility.
+**Robert "Huck" Huckaby** contributed an operational and human perspective. He examined an earlier public evidence package, ran its examiner, and provided a practitioner review from the perspective of customers, operators, support teams, and organizations managing unresolved transactions. He emphasized that when an uncertain transaction is safely held, the evidence, unresolved questions, case ownership, and responsibility must survive the handoff to the next operator. His proposed evaluation using an unfamiliar operator and only the available evidence helped develop the research questions around practical recovery and human responsibility.
 
 **Terry Snyder** challenged how consequential execution and its supporting evidence should be demonstrated without exposing protected implementation details. His proposed failure scenario involved a lost external confirmation, restored system state, revoked authority, and attempted duplicate execution. That discussion helped motivate a public demonstration addressing uncertain outcomes, recovery, and the need to examine observed consequences alongside authorization decisions.
 
