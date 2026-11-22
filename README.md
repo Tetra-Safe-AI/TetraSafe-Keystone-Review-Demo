@@ -10,6 +10,22 @@ The [Presentation P1 status record](PRESENTATION_P1_STATUS.md) identifies the se
 
 The Keystone Mechanism is an architectural component concerned with the authority to carry out consequential actions. This demonstration uses simulated refunds to show selected controls, what happens when a system is restored to an earlier state, what an external witness can preserve, and where the current implementation still fails. **The demonstration is not the Keystone Mechanism itself**, and this repository is not a release of its protected implementation.
 
+## Voussoir R1: experimental extension (November 21, 2026)
+
+Voussoir is the continuing work after the version 20 demonstration. Its first experiment, **R1**, kept the frozen run 7 enforcement code unchanged. It moved the record that an authorization has been consumed onto a second virtual machine that is never restored. The Keystone virtual machine was then restored for real in VirtualBox, and the original authorization presented again.
+
+**Results:**
+- **A deliberately broken control,** with the record left inside the restored machine, accepted the authorization a second time. The destination recorded **2** executions.
+- **Three protected runs** refused it before dispatch (`held_anchored`). The destination stayed at **1** in each.
+- **Five failure cases** around the same restore behaved as expected, including a crash immediately after sending.
+- **Every run's witness log** verified PASS, with all entries authenticated.
+
+The results also expose limitations that are **not** solved: a restored machine that cannot reconcile on its own (`no_row`), a refund that can be held indefinitely (a stranded hold), one computer and one administrator, and a simulated destination.
+
+The [Voussoir R1 results](VOUSSOIR_R1_RESULTS.md) give the method, the full results, which evidence is witness-authenticated and which is not, every material limitation, and the questions reviewers may want to press.
+
+**R1 is an experimental extension, not version 21 of the demonstration.** It does not change the version 20 record below. The version 20 demonstration still shows detection after dispatch, and its limitations stand as written.
+
 ## The question being demonstrated
 
 An autonomous agent can be authorized to perform an action, such as sending a refund. But what happens if the computer that remembers the transaction is restored to an earlier state? The restored system may no longer remember that the refund was sent, while the agent still holds the original authorization.
@@ -50,7 +66,7 @@ The separately reported public key fingerprint is `aa2a043d778af701be5df14166a58
 
 ## What these results do not prove
 
-**Detection is not prevention.** In the known restoration failure, the witness observes the second dispatch after the execution boundary has accepted the old authorization. The demonstration does not establish that the original authorization is reliably invalidated across a loss of state continuity.
+**Detection is not prevention.** In the known restoration failure, the witness observes the second dispatch after the execution boundary has accepted the old authorization. The demonstration does not establish that the original authorization is reliably invalidated across a loss of state continuity. (This describes the version 20 demonstration. The separate Voussoir R1 experiment tests prevention of this specific repeat under a narrower, stated boundary. See the [Voussoir R1 results](VOUSSOIR_R1_RESULTS.md).)
 
 **The destination is simulated.** Observed dispatches are not proof that two real external payments settled. The policy warning is conditional because destination records are not connected to the witness evidence.
 

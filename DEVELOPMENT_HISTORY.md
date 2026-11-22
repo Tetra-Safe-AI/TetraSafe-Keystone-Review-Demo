@@ -107,6 +107,23 @@ The following are SHA256 identifiers for the delivered ZIP archives, not asserti
 
 The trusted package manifest hash for delivered version 20 is **3105d61a164bdea760f3ee2f7cf24344e3e9cdd87450148fa5f2c2eac154dd5e**. A checksum identifies exact bytes. It does not, by itself, establish correctness or public release approval.
 
+## After version 20: the Voussoir R1 experimental extension
+
+*Added November 21, 2026.* The version 20 package and its record above remain frozen. The next piece of work, named Voussoir, began as an experiment rather than a new demonstration version.
+
+**What R1 changed.** R1 used the unchanged run 7 enforcement code. It ran the anchor, the component that records an authorization as consumed, and the simulated destination on a second virtual machine outside the restored one. It connected them through a restricted SSH relay over a VirtualBox internal network.
+
+**What the runs showed.** The experiment ran on November 21 on Stephen's Windows computer.
+- **The broken control,** with the consumption record inside the restored machine, re-executed the original authorization: destination 2.
+- **Three protected runs** refused it before dispatch: destination 1 each.
+- **Five failure cases** around the restore behaved as expected.
+
+The method, the results, the evidence classes and the limitations are in [VOUSSOIR_R1_RESULTS.md](VOUSSOIR_R1_RESULTS.md).
+
+**The same lesson as versions 10 to 20 appeared again during preparation.** A Windows PowerShell 5.1 behaviour that the Linux-based tests did not reproduce stopped a preparation script part-way. It was corrected and tested under equivalent error handling, and the step was finished from the state actually found rather than repeated.
+
+R1 did not authorize a version 21 and did not change the frozen package.
+
 ## Record sources and limits
 
 The historical description of versions 1 through 18 comes from the read only retrospective KEYSTONE_REVIEW_PROTOCOL_AND_VERSION_HISTORY_v1.md dated November 17, 2026, which reviewed the available packages and described the boundaries of its own evidence. Versions 19 and 20 are based on private Notebook records 280 and 281, and the broader pattern of findings on records 282, 284, and 286. Record 286 predates the successful version 20 Windows run, so its statement that v20 lacked Windows evidence is superseded by the November 18 run.
