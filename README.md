@@ -2,6 +2,28 @@
 
 A controlled demonstration of the **Keystone Mechanism developed by TetraSafe**, a research effort led by Stephen Robert Gettel.
 
+## Start here: public research and pilot inquiries
+
+TetraSafe is developing an architectural component for independently enforcing the authority to carry out consequential actions in autonomous software workflows. The research examines what happens when an authorized action is interrupted, repeated, or proposed again after a system has been restored to an earlier state.
+
+For prospective customers and technical reviewers, the public research progresses through the following separate experimental records:
+
+| Research package | What it examines |
+|---|---|
+| [Keystone version 20 demonstration](#the-question-being-demonstrated) | Authorization controls, restored state, and independent observation of a repeat dispatch. The known restoration failure is disclosed. |
+| [Keystone examiner package](https://github.com/SvengsFuture/keystone-demo-public) | Public synthetic evidence, 83 cases, judge and verification tools, including deliberately broken controls and a documented joint restoration failure. |
+| [Voussoir R1](VOUSSOIR_R1_RESULTS.md) | Prevention of a repeat dispatch in the tested powered-off virtual machine restoration arrangement, with the consumption record outside the restored machine. |
+| [Voussoir Level One, published v3](https://github.com/SvengsFuture/Voussoir-Independent-Review/tree/main/level1-v3) | 800 experimental runs comparing executor and authority restoration arrangements, including deliberately broken controls. Published case study and fingerprints of private evidence. |
+| [Voussoir X1 and X2: When HOLD Is Not Enough](https://github.com/SvengsFuture/Voussoir-X1-X2) | 276 experimental runs examining repeat execution, dispatch boundaries, and the resolution of uncertain outcomes, including limitations and availability costs. |
+
+These packages describe distinct experiments with different deployment and failure boundaries. They are not cumulative reliability statistics, independent certification, or evidence of production readiness. The consequential action experiments use simulated destinations, not real financial transactions. Access to evidence varies by package; published fingerprints do not independently verify private results. The protected implementation remains private.
+
+Related architectural research: [Topological Recovery](https://github.com/SvengsFuture/topological-recovery) and [Bounded Routing](https://github.com/SvengsFuture/bounded-routing).
+
+**Pilot inquiries:** TetraSafe is interested in discussions with organizations developing autonomous workflows in which an unauthorized or repeated action could have meaningful operational or financial consequences. A prospective pilot would define one workflow, its existing controls, relevant failure conditions, and measurable outcomes before any integration or testing. Contact [Stephen Gettel](https://github.com/SvengsFuture) to discuss suitability. This is an invitation to customer discovery, not a claim that a production deployment is available or certified.
+
+---
+
 The [Development History](DEVELOPMENT_HISTORY.md) documents demonstration versions 1 through 20, their known failures, and their exact archive identifiers without exposing source code. The [Presentation Guide](PRESENTATION_GUIDE.md) explains how to show the saved evidence safely.
 
 The [Version 20 Architecture Diagram](keystone_v20_architecture_for_review_v4.svg) and its [companion explanation](keystone_v20_architecture_explanation_for_review_v4.md) show the actual demonstration components and communication paths, including how the original authorization survived the restore and what the witness can and cannot establish. They describe the tested version 20 demonstration, not a new prevention design.
